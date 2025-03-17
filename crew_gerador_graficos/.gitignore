@@ -1,0 +1,21 @@
+# Ignorar diretórios __pycache__
+__pycache__/
+
+# Ignorar arquivos de bytecode do Python
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar configurações do VS Code 
+.vscode/
+
+# Ignorar arquivos de ambiente virtual
+venv/
+env/
+*.env
+
+# Ignorar arquivos de configuração local 
+*.local
+
+# Ignorar arquivos de banco de dados SQLite 
+*.sqlite3

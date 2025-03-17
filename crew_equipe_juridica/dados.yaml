@@ -1,0 +1,76 @@
+peticao:
+  enderecamento:
+    tribunal: "Tribunal de Justiça do Estado de Goiás"
+    vara: "1ª Vara Cível"
+    comarca: "Goiânia"
+    processo: "04458320853480"
+    juiz: "José Justo"
+  partes:
+    autor:
+      nome: "João do Pé de Feijão"
+      nacionalidade: "Brasileiro"
+      estado_civil: "Solteiro"
+      profissao: "Pedreiro"
+      rg: "MG-12.345.678"
+      cpf: "123.456.789-00"
+      endereco: "Rua das Sentido, 123, Centro, Goiânia, GO, 74000-000"
+    reu:
+      nome: "Maria de Blablabla"
+      nacionalidade: "Brasileira"
+      estado_civil: "Casada"
+      profissao: "Advogada"
+      rg: "GO-98.765.432"
+      cpf: "987.654.321-00"
+      endereco: "Avenida do Chão de Ouro, 456, Setor Oeste, Goiânia, GO, 74000-001"
+  advogado:
+    nome: "Dr. Sandeco Macedo"
+    oab: "OAB/GO 12345"
+    endereco: "Alameda dos Anjos, 789, Setor Sul, Goiânia, GO, 74000-002"
+    telefone: "(62) 1234-5678"
+    email: "sandeco@advocaciadoidera.com.br"
+    area_de_atuacao: "Direito Civil"
+  fatos:
+    data_evento: "2023-05-20"
+    local_evento: "Praça Central, Goiânia"
+  descricao: |
+    - Autor foi vítima de ofensas verbais proferidas pelo Réu
+    - Aconteceu em plena Praça Central de Goiânia
+    - Chamou o autor de miserável
+    - Grande constrangimento e humilhação
+  impacto: |
+    - O Autor sofreu abalo emocional significativo
+    - Prejuízo de suas relações pessoais e profissionais
+    - Ele necessitou de acompanhamento psicológico
+  fundamentacao_juridica:
+    artigos:
+      - codigo_civil: "Art. 186"
+      - codigo_civil: "Art. 927"
+    jurisprudencia: >
+      - direito à indenização por danos morais comprovado
+    principios_juridicos: "Princípio da Dignidade da Pessoa Humana"
+  pedidos:
+    citacao_reu: "Réu seja formalmente notificado."
+    procedencia_acao: "Pagamento de indenização por danos morais."
+    valor_indenizacao: "R$ 50.000,00"
+    juros_correcao: True
+    custas_honorarios: True
+  provas:
+    documental:
+      - "Boletim de Ocorrência"
+      - "Relatórios médicos"
+    testemunhal:
+      - nome: "Ana Aninha Ana"
+        endereco: "Rua das Palmeiras, 321, Centro, Goiânia, GO"
+      - nome: "Pedro Pedreira Noventa"
+        endereco: "Avenida das Américas, 654, Setor Bueno, Goiânia, GO"
+    pericial: "Perícia psicológica para avaliação dos danos"
+  medidas_antecipatorias :
+    pedido_liminar : " Proibição de contato do Réu com o Autor"
+    justificativa : " Evitar novas ofensas e constrangimentos "
+    urgencia : " Risco de dano irreparável ao Autor "
+  assinatura :
+    local : "Goiânia"
+    data : " 2024-07-30 "
+    advogado :
+      nome : "Dr. Sandeco Macedo "
+      oab : " OAB/GO 12345 "
