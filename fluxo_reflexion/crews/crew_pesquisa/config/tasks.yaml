@@ -1,0 +1,7 @@
+escrever_topicos:
+  description: >
+    Escreva tópicos sobre o que você acha que é importante no estudo sobre o tema {tema}.
+    Certifique-se de que os tópicos sejam relevantes e cubram uma variedade de aspectos sobre o tema. 
+  expected_output: >
+    Uma lista de tópicos relevantes e abrangentes sobre o tema {tema}.
+  agent: pesquisador
