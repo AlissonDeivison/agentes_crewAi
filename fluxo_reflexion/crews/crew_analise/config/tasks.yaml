@@ -1,7 +1,0 @@
-gerar_opiniao_e_classificar_topicos:
-  description: >
-    Gere uma opinião sobre a qualidade dos tópicos gerados pelo pesquisador sobre o tema {tema}.
-    Classifique a qualidade dos tópicos e sugira possíveis melhorias para torná-los mais relevantes e abrangentes.
-  expected_output: >
-    Uma opinião detalhada sobre a qualidade dos tópicos, uma classificação dos tópicos e sugestões de melhorias.
-  agent: avaliador
