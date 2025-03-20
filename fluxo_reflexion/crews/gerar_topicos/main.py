@@ -18,6 +18,7 @@ class CrewGerarTopicos():
         self.llm = "gpt-4o"
         self.crew = self._criar_crew()
         self.references = []
+        self.artigo = ""
 
     def _validar_fontes(self, content):
         """Valida e formata as referências no texto"""
@@ -60,7 +61,7 @@ class CrewGerarTopicos():
 
         escritor = Agent(
             role="Redator Científico",
-            goal="Escrever artigo acadêmico de 1500 palavras sobre {topico}",
+            goal="Escrever artigo acadêmico de 4000 palavras sobre {topico}",
             backstory="""Pesquisador doutor com mais de 50 publicações em revistas de alto impacto,
             especialista em redação técnica""",
             llm=self.llm,
@@ -69,7 +70,7 @@ class CrewGerarTopicos():
 
         revisor = Agent(
             role="Revisor Chefe",
-            goal="Validar integridade acadêmica do conteúdo",
+            goal="Validar integridade acadêmica do conteúdo, corrigir erros, garantir qualidade e reescrever o artigo pronto para publicação",
             backstory="""Editor-chefe de revista científica indexada, especialista em ética de publicação""",
             llm=self.llm,
             verbose=True
@@ -84,7 +85,6 @@ class CrewGerarTopicos():
             expected_output="Lista de 5-7 referências validadas com URLs completas",
             agent=pesquisador,
             tools=[self.search_tool],
-            output_file="referencias.md"
         )
 
         escrita_task = Task(
@@ -93,23 +93,27 @@ class CrewGerarTopicos():
             2. Revisão da literatura
             3. Análise crítica
             4. Conclusões com recomendações
-            5. Referências formatadas""",
-            expected_output="Documento em markdown com 1500 palavras e citações [n]",
+            5. Referências formatadas
+            6. Remoção de plágio e conteúdo duplicado
+            7. Remoção de ````markdown""",
+            expected_output="Documento em markdown com 4000 palavras e citações [n]",
             agent=escritor,
             context=[pesquisa_task],
-            output_file="artigo.md"
         )
 
         revisao_task = Task(
             description="""Realizar verificação final:
             1. Checar URLs das referências
             2. Validar consistência das citações
-            3. Garantir padrão acadêmico""",
-            expected_output="Relatório de validação técnico",
+            3. Garantir padrão acadêmico
+            4. Corrigir erros gramaticais e de estilo
+            5. Artigo reescrito com correções
+            6. Artigo revisado pronto para publicação
+            7. Remoção de ````markdown""",
+            expected_output="Artigo reescrito com os aperfeiçoamentos necessários pronto para publicação",
             agent=revisor,
             context=[pesquisa_task, escrita_task],
             async_execution=True,
-            output_file="validacao.md"
         )
 
         return Crew(
@@ -124,13 +128,17 @@ class CrewGerarTopicos():
         try:
             validados = InputValidator(**inputs).dict()
             resultado = self.crew.kickoff(inputs=validados)
-            conteudo_validado = self._validar_fontes(resultado.raw)
+            self.artigo = resultado.raw  # Armazena o artigo antes da validação
+            # conteudo_validado = self._validar_fontes(resultado.raw)
             
-            return (
-                f"{conteudo_validado}\n\n"
-                "## Referências Validadas\n" + 
-                "\n".join(self.references)
-            )
+            # # Salvar arquivos corretamente
+            # with open("artigo.md", "w", encoding="utf-8") as f:
+            #     f.write(self.artigo)
+            
+            # with open("relatorio_validacao.md", "w", encoding="utf-8") as f:
+            #     f.write(conteudo_validado)
+            
+            return self.artigo  # Retorna o conteúdo real do artigo
             
         except ValidationError as e:
             return f"Erro nos inputs: {e.json()}"
